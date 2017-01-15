@@ -1,0 +1,9 @@
+<template name="shows">
+    <div class="vertical-flexbox">
+        <div class="metro-header" {{b "click: go('home')"}}>Shows</div>
+        <div class="metro-action-button"> Coming Soon </div>
+        {{#each shows}}
+        <div class="metro-action-button" {{b "click: show(this)"}}> {{readableDate(this)}} </div>
+        {{/each}}
+    </div>
+</template>

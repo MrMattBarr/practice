@@ -1,0 +1,8 @@
+<template name="members">
+    <div class="vertical-flexbox">
+        <div class="metro-header" {{b "click: go('home')"}}>The Acoustix</div>
+        {{#each members}}
+        <div class="metro-action-button" {{b "click: selectMember(this)"}}> {{this.name}} </div>
+        {{/each}}
+    </div>
+</template>

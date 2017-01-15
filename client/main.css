@@ -1,0 +1,91 @@
+/* CSS declarations go here */
+
+body {
+    background-color: #786b51;
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+@font-face {
+    font-family: 'Sertig';
+    src: url('./fonts/Sertig.otf');
+    /* IE9 Compat Modes */
+}
+
+.metro-header {
+    cursor: default;
+    font-family: 'Sertig';
+    color: #ffffff;
+    font-size: 44px;
+    text-shadow: 2px 2px 1px #666;
+    padding: 5px;
+}
+
+.metro-input {
+    margin: 5px;
+    font-size: 24px;
+    border: 1px solid #afe2dc;
+    font-family: 'Sertig';
+    padding: 5px;
+}
+
+.metro-action-button {
+    cursor: default;
+    font-family: 'Sertig';
+    height: 30px;
+    color: #afe2dc;
+    font-size: 22px;
+    text-shadow: 2px 2px 1px #666;
+    background-color: rgba(230, 240, 250, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.action-button {
+    background-color: #f5f3d7;
+    display: flex;
+    align-content: center;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 16px;
+    box-shadow: 2px 2px 2px #666;
+    border: 1px solid #736363;
+    border-radius: 2px;
+    min-height: 30px;
+    cursor: pointer;
+    color: #942121;
+    font-weight: bold;
+}
+
+.action-button:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.action-button:hover {
+    background-color: #d5d5d6;
+    color: black;
+}
+
+.action-button:active {
+    padding: 12px 8px 8px 12px;
+    border-top-width: 2px;
+    border-bottom-width: 0;
+    border-left-width: 2px;
+    border-right-width: 0;
+}
+
+.flexbox {
+    display: flex;
+}
+
+.main-view {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+}
