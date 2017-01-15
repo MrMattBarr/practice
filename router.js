@@ -37,6 +37,17 @@ Router.map(function() {
         }
     });
 
+    this.route('/practices/:_id', {
+        name: 'practice',
+        template: 'practice',
+        data: function() {
+            var practice = Practices.findOne({
+                _id: this.params._id
+            });
+            return practice;
+        }
+    });
+
     this.route('/songs/:_id', {
         name: 'song',
         template: 'song',

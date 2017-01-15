@@ -24,12 +24,34 @@ body {
     padding: 5px;
 }
 
+.metro-sub-header {
+    cursor: default;
+    font-family: 'Sertig';
+    color: #d4ce0c;
+    font-size: 32px;
+    text-shadow: 2px 2px 1px #666;
+    padding: 0 5px;
+}
+
+.metro-sub-section {
+    padding: 5px 0 30px 20px;
+}
+
 .metro-input {
     margin: 5px;
     font-size: 24px;
     border: 1px solid #afe2dc;
     font-family: 'Sertig';
     padding: 5px;
+}
+
+.metro-select {
+    margin: 5px;
+    font-size: 24px;
+    border: 1px solid #afe2dc;
+    border-radius: 2px;
+    font-family: 'Sertig';
+    padding: 10px;
 }
 
 .metro-action-button {

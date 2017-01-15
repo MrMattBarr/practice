@@ -1,0 +1,21 @@
+<template name="practice">
+    <div class="vertical-flexbox">
+        <div class="metro-header" {{b "click: go('practices')"}}>{{readableDate(time)}}</div>
+        <div class="metro-sub-header">Songs</div>
+        <div class="metro-sub-section">
+            <select class="metro-select">
+                {{#each songs}}
+                <option>{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="metro-sub-header">Late / Absent</div>
+        <div class="metro-sub-section">
+            <select class="metro-select">
+                {{#each members}}
+                <option>{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+</template>
