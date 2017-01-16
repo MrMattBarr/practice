@@ -1,5 +1,5 @@
 Template.practices.viewmodel({
-    share: ['menu'],
+    share: ['menu', 'stringFormatter'],
     onRendered: function() {
         this.menuItems(
             [{

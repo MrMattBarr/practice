@@ -3,19 +3,18 @@
         <div class="metro-header" {{b "click: go('practices')"}}>{{readableDate(time)}}</div>
         <div class="metro-sub-header">Songs</div>
         <div class="metro-sub-section">
-            <select class="metro-select">
-                {{#each songs}}
-                <option>{{this.name}}</option>
-                {{/each}}
-            </select>
+            {{#each songs}}
+            <div class="metro-sub-entry"> {{this.name}} </div>
+            {{/each}}
+            <div class="metro-sub-action-button flexbox" {{b "toggle: showOtherSongs"}}>
+                + add song to practice
+            </div>
         </div>
-        <div class="metro-sub-header">Late / Absent</div>
+        <div class="metro-sub-header">Members</div>
         <div class="metro-sub-section">
-            <select class="metro-select">
-                {{#each members}}
-                <option>{{this.name}}</option>
-                {{/each}}
-            </select>
+            {{#each members}}
+            <div class="metro-sub-entry"> {{this.name}} </div>
+            {{/each}}
         </div>
     </div>
 </template>

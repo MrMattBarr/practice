@@ -1,0 +1,36 @@
+body {
+    background-color: #786b51;
+}
+
+
+/* Header color */
+
+.metro-header,
+.metro-sub-entry {
+    color: #fff;
+}
+
+
+/* Subsections */
+
+.metro-sub-section {
+    border-left-color: #d4ce0c;
+}
+
+.metro-sub-header {
+    color: #d4ce0c;
+}
+
+
+/* Accent Color */
+
+.metro-input,
+.metro-select {
+    border-color: #90b5ff;
+}
+
+.metro-action-button,
+.metro-sub-action-button,
+.nav-button {
+    color: #b6ceff;
+}

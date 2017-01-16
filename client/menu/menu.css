@@ -6,7 +6,6 @@
     background-color: black;
     padding: 5px;
     flex-grow: 1;
-    color: #afe2dc;
     cursor: pointer;
     display: flex;
     flex-direction: column;

@@ -2,7 +2,7 @@
     <div class="vertical-flexbox">
         <div class="metro-header" {{b "click: go('home')"}}>Practices</div>
         {{#each practices}}
-        <div class="metro-action-button" {{b "click: selectPractice(this)"}}> {{this.time}} </div>
+        <div class="metro-action-button" {{b "click: selectPractice(this)"}}> {{readableDate(this.time)}} </div>
         {{/each}}
     </div>
 </template>
