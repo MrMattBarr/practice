@@ -3,11 +3,16 @@
         <div class="metro-header" {{b "click: go('practices')"}}>{{readableDate(time)}}</div>
         <div class="metro-sub-header">Songs</div>
         <div class="metro-sub-section">
-            {{#each songs}}
-            <div class="metro-sub-entry"> {{this.name}} </div>
+            {{#each songsInPractice}}
+            <div class="metro-sub-entry" {{b "click: removeSongPractice(this)"}}> {{songNameFromId(this.songId)}} </div>
             {{/each}}
-            <div class="metro-sub-action-button flexbox" {{b "toggle: showOtherSongs"}}>
+            <div class="metro-sub-action-button flexbox" {{b "toggle: showOtherSongs, if: !showOtherSongs"}}>
                 + add song to practice
+            </div>
+            <div {{b "if: showOtherSongs"}}>
+                {{#each songs}}
+                <div class="metro-sub-action-button" {{b "click: addSongToPractice(this), if: !songIsInPractice(this._id)"}}> + {{this.name}} </div>
+                {{/each}}
             </div>
         </div>
         <div class="metro-sub-header">Members</div>
