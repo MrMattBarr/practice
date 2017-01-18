@@ -9,6 +9,8 @@ Template.practice.viewmodel({
                 arguments: this._id.value
             }]);
     },
+    showSongs: true,
+    showMembers: false,
     delete: function(practiceId) {
         Practices.remove(practiceId);
         Router.go('practices');
@@ -19,15 +21,55 @@ Template.practice.viewmodel({
     songIsInPractice(songId) {
         return !!SongPractices.findOne({ songId: songId, practice: this._id.value });
     },
-    songNameFromId: function(songId) {
-        var song = Songs.findOne({ _id: songId });
-        return song.name;
-    },
     songsInPractice: function() {
         return SongPractices.find({ practice: this._id.value });
     },
+    membersInPractice: function() {
+        return MemberPractices.find({ practice: this._id.value });
+    },
+    createMembersInPractice: function() {
+        var members = Members.find({});
+        var vm = this;
+        members.forEach(function(member) {
+            MemberPractices.insert({
+                createdAt: new Date(),
+                member: member._id,
+                practice: vm._id.value,
+                attendance: "PRESENT"
+            });
+        });
+    },
     removeSongPractice: function(songPractice) {
         SongPractices.remove(songPractice._id);
+    },
+    classFromAttendance: function(attendance) {
+        switch (attendance) {
+            case "PRESENT":
+                return "present";
+            case "ABSENT":
+                return "absent";
+            case "TARDY":
+                return "tardy";
+            default:
+                return '';
+        }
+    },
+    cycleAttendanceStatus: function(memberPractice) {
+        var newAttendance = "PRESENT";
+        switch (memberPractice.attendance) {
+            case "PRESENT":
+                newAttendance = "ABSENT";
+                break;
+            case "ABSENT":
+                newAttendance = "TARDY";
+                break;
+        }
+        console.log('memberPractice is %O', memberPractice, newAttendance);
+        MemberPractices.update(memberPractice._id, {
+            $set: {
+                attendance: newAttendance
+            }
+        });
     },
     addSongToPractice: function(song) {
         console.log('hi');

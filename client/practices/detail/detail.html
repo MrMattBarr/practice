@@ -1,8 +1,11 @@
 <template name="practice">
     <div class="vertical-flexbox">
         <div class="metro-header" {{b "click: go('practices')"}}>{{readableDate(time)}}</div>
-        <div class="metro-sub-header">Songs</div>
-        <div class="metro-sub-section">
+        <div class="metro-sub-header spaced-children" {{b "toggle: showSongs"}}>
+            <i class="fa fa-caret-right" {{b "class: { 'rotate right': showSongs }" }}></i>
+            <span>Songs</span>
+        </div>
+        <div class="metro-sub-section" {{b "if: showSongs"}}>
             {{#each songsInPractice}}
             <div class="metro-sub-entry" {{b "click: removeSongPractice(this)"}}> {{songNameFromId(this.songId)}} </div>
             {{/each}}
@@ -15,10 +18,17 @@
                 {{/each}}
             </div>
         </div>
-        <div class="metro-sub-header">Members</div>
-        <div class="metro-sub-section">
-            {{#each members}}
-            <div class="metro-sub-entry"> {{this.name}} </div>
+        <div class="metro-sub-header" {{b "toggle: showMembers"}}>
+            <i class="fa fa-caret-right" {{b "class: { 'rotate right': showMembers }" }}></i>
+            <span>Members</span>
+        </div>
+        <div class="metro-sub-section" {{b "if: showMembers"}}>
+            {{#each membersInPractice}}
+            <div class="metro-sub-action-button flexbox " {{b "click: cycleAttendanceStatus(this), class: classFromAttendance(this.attendance)"}}>
+                <div>{{memberNameFromId(this.member)}}</div>
+                <div class="flex-grow "></div>
+                <div>{{readableAttendance(this.attendance)}}</div>
+            </div>
             {{/each}}
         </div>
     </div>

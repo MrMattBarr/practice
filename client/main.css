@@ -72,7 +72,7 @@ body {
     cursor: pointer;
     font-family: 'Sertig';
     height: 20px;
-    font-size: 16px;
+    font-size: 20px;
     text-shadow: 1px 1px 2px #444;
     background-color: rgba(230, 240, 250, 0);
     display: flex;
@@ -94,8 +94,17 @@ body {
     display: flex;
 }
 
+.flex-grow {
+    flex-grow: 1;
+}
+
 .main-view {
-    max-width: 1000px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.spaced-children > *:not(:last-child) {
+    margin-right: 5px;
 }

@@ -1,0 +1,15 @@
+.rotate.right {
+    animation-name: rotate-right;
+    animation-duration: .25s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rotate-right {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(90deg);
+    }
+}

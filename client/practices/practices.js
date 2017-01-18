@@ -45,13 +45,22 @@ Template.practices.viewmodel({
         d.setDate(d.getDate() + (day + DAYS_IN_WEEK - d.getDay()) % DAYS_IN_WEEK);
         d.setHours(schedule.hour);
         d.setMinutes(schedule.minute);
-        Practices.insert({
+        var practiceId = Practices.insert({
             time: d,
             createdAt: new Date(),
             month: d.getMonth(),
             date: d.getDate()
         });
-        console.log('d is this, %O', d);
+        var members = Members.find({});
+        members.forEach(function(member) {
+            console.log('member is %O and practiceId is %O', member, practiceId);
+            MemberPractices.insert({
+                createdAt: new Date(),
+                member: member._id,
+                practice: practiceId,
+                attendance: "PRESENT"
+            });
+        });
     },
     deleteSetting: function(setting) {
         Settings.remove(setting._id);
