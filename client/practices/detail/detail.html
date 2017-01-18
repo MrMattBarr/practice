@@ -16,9 +16,13 @@
             </div>
         </div>
         <div class="metro-sub-header">Members</div>
-        <div class="metro-sub-section">
-            {{#each members}}
-            <div class="metro-sub-entry"> {{this.name}} </div>
+        <div class="metro-sub-section ">
+            {{#each membersInPractice}}
+            <div class="metro-sub-action-button flexbox " {{b "click: cycleAttendanceStatus(this), class: classFromAttendance(this.attendance)"}}>
+                <div>{{memberNameFromId(this.member)}}</div>
+                <div class="flex-grow "></div>
+                <div>{{readableAttendance(this.attendance)}}</div>
+            </div>
             {{/each}}
         </div>
     </div>

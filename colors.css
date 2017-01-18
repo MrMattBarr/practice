@@ -31,6 +31,15 @@ body {
 
 .metro-action-button,
 .metro-sub-action-button,
-.nav-button {
+.nav-button,
+.present {
     color: #b6ceff;
+}
+
+.tardy {
+    color: #d4ce0c;
+}
+
+.absent {
+    color: #ffc0c0;
 }

@@ -1,5 +1,15 @@
 ViewModel.share({
     stringFormatter: {
+        readableAttendance: function(attendance) {
+            switch (attendance) {
+                case "PRESENT":
+                    return 'Present';
+                case "TARDY":
+                    return 'Tardy';
+                case "ABSENT":
+                    return 'Absent';
+            }
+        },
         readableDate: function(date) {
             if (!date) return "Practice details";
             var month = date.getMonth();
@@ -43,6 +53,14 @@ ViewModel.share({
                     break;
             }
             return rm + " " + date.getDate() + ", " + (date.getYear() + 1900);
-        }
+        },
+        songNameFromId: function(songId) {
+            var song = Songs.findOne({ _id: songId });
+            return song.name;
+        },
+        memberNameFromId: function(memberId) {
+            var member = Members.findOne({ _id: memberId });
+            return member.name || "unkown";
+        },
     }
 });
