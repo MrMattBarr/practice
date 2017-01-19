@@ -1,8 +1,10 @@
 <template name="practices">
     <div class="vertical-flexbox">
         <div class="metro-header" {{b "click: go('home')"}}>Practices</div>
+        <div class="metro-action-button tardy" {{b "click: createPractice(nextPractice), text: readableDate(nextPractice)"}}> </div>
         {{#each practices}}
         <div class="metro-action-button" {{b "click: selectPractice(this)"}}> {{readableDate(this.time)}} </div>
         {{/each}}
+        <div class="metro-action-button absent" {{b "click: createPractice(priorPractice), text: readableDate(priorPractice)"}}> </div>
     </div>
 </template>

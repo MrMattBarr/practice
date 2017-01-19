@@ -72,7 +72,6 @@ Template.practice.viewmodel({
         });
     },
     addSongToPractice: function(song) {
-        console.log('hi');
         SongPractices.insert({
             createdAt: new Date(),
             songId: song._id,
