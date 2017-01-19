@@ -1,13 +1,15 @@
 Template.practice.viewmodel({
     share: ['menu', 'stringFormatter'],
     onRendered: function() {
-        this.menuItems(
-            [{
-                label: "Delete",
-                icon: "fa-trash-o",
-                action: this.delete,
-                arguments: this._id.value
-            }]);
+        var lockButton = {
+            label: "Lock Practice",
+            icon: "fa-lock",
+            action: this.lockPractice,
+            arguments: this
+        };
+        var items = [];
+        if (!!this._id && (!this.locked || !this.locked.value)) { items.push(lockButton); }
+        this.menuItems(items);
     },
     showSongs: true,
     showMembers: false,
@@ -19,28 +21,28 @@ Template.practice.viewmodel({
         return Songs.find({});
     },
     songIsInPractice(songId) {
+        if (!this._id) return null;
         return !!SongPractices.findOne({ songId: songId, practice: this._id.value });
     },
     songsInPractice: function() {
+        if (!this._id) return null;
         return SongPractices.find({ practice: this._id.value });
     },
     membersInPractice: function() {
+        if (!this._id) return null;
         return MemberPractices.find({ practice: this._id.value });
-    },
-    createMembersInPractice: function() {
-        var members = Members.find({});
-        var vm = this;
-        members.forEach(function(member) {
-            MemberPractices.insert({
-                createdAt: new Date(),
-                member: member._id,
-                practice: vm._id.value,
-                attendance: "PRESENT"
-            });
-        });
     },
     removeSongPractice: function(songPractice) {
         SongPractices.remove(songPractice._id);
+    },
+    lockPractice: function(vm) {
+        console.log('vm is this %O', vm, vm._id.value);
+        Practices.update(vm._id.value, {
+            $set: {
+                locked: true
+            }
+        });
+        vm.menuItems([]);
     },
     classFromAttendance: function(attendance) {
         switch (attendance) {
@@ -64,7 +66,6 @@ Template.practice.viewmodel({
                 newAttendance = "TARDY";
                 break;
         }
-        console.log('memberPractice is %O', memberPractice, newAttendance);
         MemberPractices.update(memberPractice._id, {
             $set: {
                 attendance: newAttendance
