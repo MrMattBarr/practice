@@ -33,10 +33,10 @@ Template.practice.viewmodel({
         return MemberPractices.find({ practice: this._id.value });
     },
     removeSongPractice: function(songPractice) {
+        if (!this.locked || this.locked.value) return;
         SongPractices.remove(songPractice._id);
     },
     lockPractice: function(vm) {
-        console.log('vm is this %O', vm, vm._id.value);
         Practices.update(vm._id.value, {
             $set: {
                 locked: true
@@ -57,6 +57,7 @@ Template.practice.viewmodel({
         }
     },
     cycleAttendanceStatus: function(memberPractice) {
+        if (!this.locked || this.locked.value) return;
         var newAttendance = "PRESENT";
         switch (memberPractice.attendance) {
             case "PRESENT":
@@ -73,6 +74,7 @@ Template.practice.viewmodel({
         });
     },
     addSongToPractice: function(song) {
+        if (!this.locked || this.locked.value) return;
         SongPractices.insert({
             createdAt: new Date(),
             songId: song._id,

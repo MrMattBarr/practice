@@ -9,7 +9,7 @@
             {{#each songsInPractice}}
             <div class="metro-sub-entry" {{b "click: removeSongPractice(this)"}}> {{songNameFromId(this.songId)}} </div>
             {{/each}}
-            <div class="metro-sub-action-button flexbox" {{b "toggle: showOtherSongs, if: !showOtherSongs"}}>
+            <div class="metro-sub-action-button flexbox" {{b "toggle: showOtherSongs, if: !locked && !showOtherSongs"}}>
                 + add song to practice
             </div>
             <div {{b "if: showOtherSongs"}}>
