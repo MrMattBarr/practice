@@ -3,5 +3,29 @@
         <div class="metro-header" {{ b "click: go('songs')" }}>
             {{ name }}
         </div>
+        <div class="metro-sub-header spaced-children" {{b "toggle: showListen"}}>
+            <i class="fa fa-caret-right" {{b "class: { 'rotate right': showListen }" }}></i>
+            <span>Listen</span>
+        </div>
+        <div class="metro-sub-section" {{b "if: showListen"}}>
+            <div {{b "if: listen"}}>
+                <audio controls>
+                    <source src="{{listen}}" type="audio/mpeg">
+                </audio>
+                <div class="metro-sub-action-button absent" {{b "click: removeListen()"}}>
+                    Remove song link
+                </div>
+            </div>
+            <div {{b "if: !listen"}}>
+                <div class="metro-sub-entry flexbox spaced-children">
+                    <span>/mp3s/</span>
+                    <input {{b "value: proposedListen"}}/>
+                    <span>.mp3</span>
+                </div>
+                <div class="metro-sub-action-button flexbox" {{b "click: addListen()"}}>
+                    + Add song link
+                </div>
+            </div>
+        </div>
     </div>
 </template>
