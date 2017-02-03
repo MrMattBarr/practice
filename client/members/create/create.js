@@ -10,8 +10,15 @@ Template.createMember.viewmodel({
             }]);
     },
     saveMember: function(vm) {
+        var name = null;
+        if (vm.name) {
+            name = vm.name.value
+        } else {
+            name = this.name();
+        }
+        if (!name) return;
         Members.insert({
-            name: vm.name.value,
+            name: name,
             createdAt: new Date()
         });
         Router.go('members');

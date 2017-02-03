@@ -14,6 +14,9 @@ ViewModel.share({
         },
         go: function(route) {
             Router.go(route);
+        },
+        logRow: function(thing) {
+            console.log('logging due to click: %O', thing);
         }
     }
 });

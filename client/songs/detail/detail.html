@@ -27,5 +27,23 @@
                 </div>
             </div>
         </div>
+        <div class="metro-sub-header spaced-children" {{b "toggle: showParts"}}>
+            <i class="fa fa-caret-right" {{b "class: { 'rotate right': showParts }" }}></i>
+            <span>Sections</span>
+        </div>
+        <div class="metro-sub-section" {{b "if: showParts"}}>
+            {{#each sections}}
+            <div class="metro-sub-entry flexbox " {{b "click: removeSection(this._id)"}}>
+                <div>{{this.name}}</div>
+                <div class="flex-grow "></div>
+            </div>
+            {{/each}}
+            <div class="flexbox ">
+                <input {{b "value: newSectionName "}}/>
+                <div class="metro-sub-action-button " {{b "click: addSection() "}}>
+                    + Add section for song
+                </div>
+            </div>
+        </div>
     </div>
 </template>
