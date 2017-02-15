@@ -27,19 +27,26 @@
                 </div>
             </div>
         </div>
-        <div class="metro-sub-header spaced-children" {{b "toggle: showParts"}}>
-            <i class="fa fa-caret-right" {{b "class: { 'rotate right': showParts }" }}></i>
+        <div class="metro-sub-header spaced-children" {{b "toggle: showSections"}}>
+            <i class="fa fa-caret-right" {{b "class: { 'rotate right': showSections }" }}></i>
             <span>Sections</span>
         </div>
-        <div class="metro-sub-section" {{b "if: showParts"}}>
+        <div class="metro-sub-section" {{b "if: showSections"}}>
             {{#each sections}}
-            <div class="metro-sub-entry flexbox " {{b "click: removeSection(this._id)"}}>
+            <div class="metro-sub-entry flexbox center-items">
                 <div>{{this.name}}</div>
-                <div class="flex-grow "></div>
+                <div class="metro-sub-action-button" {{b "click: addSectionMember(this._id), if:!showMemberOptions(this)"}}>+ Add member</div>
             </div>
-            {{/each}}
-            <div class="flexbox ">
-                <input {{b "value: newSectionName "}}/>
+            <div {{b "if: showMemberOptions(this)"}}>
+                {{#each members}}
+                <div class="metro-sub-action-button" {{b "click: addSectionMember(this._id)"}}> + {{this._id}}</div>
+                {{/each}}
+            </div> {{/each}}
+            <div class="metro-action-button " {{b "toggle: showAddSection, if: !showAddSection"}}>
+                + Add section for song
+            </div>
+            <div class="flexbox" {{b "if: showAddSection"}}>
+                <input {{b "value: newSectionName "}} placeholder="Section Name" />
                 <div class="metro-sub-action-button " {{b "click: addSection() "}}>
                     + Add section for song
                 </div>

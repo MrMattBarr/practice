@@ -17,6 +17,7 @@ Template.song.viewmodel({
         return Members.find({}, { sort: { name: -1 } });
     },
     sections: function() {
+        if (!this._id) return;
         return SongSections.find({ song: this._id.value });
     },
     addSection: function() {
@@ -27,12 +28,20 @@ Template.song.viewmodel({
             song: this._id.value
         });
         this.newSectionName('');
+        this.showAddSection(false);
     },
+    addSectionMember: function(sectionId) {
+        console.log('section Id is %O and contacts is %O', sectionId, this.candidates);
+    },
+    candidates: {},
     removeSection: function(sectionId) {
-        console.log('id is this %O', sectionId);
         SongSections.remove(sectionId);
     },
     showListen: true,
+    showSections: true,
+    showMemberOptions: function(sectionId) {
+        return false
+    },
     removeListen: function() {
         Songs.update(this._id.value, {
             $unset: {

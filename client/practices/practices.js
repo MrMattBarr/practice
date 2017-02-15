@@ -9,15 +9,28 @@ Template.practices.viewmodel({
             }]);
     },
     nextPractice: function() {
+        var lpt = new Date();
         var latestPractice = Practices.findOne({}, { sort: { time: -1 } });
-        var lpt = latestPractice.time;
-        lpt.setDate(lpt.getDate() + 7);
+        if (latestPractice) {
+            lpt = latestPractice.time;
+            lpt.setDate(lpt.getDate() + 7);
+        }
+
         return lpt;
     },
+    shouldShowNext: function() {
+        var today = new Date();
+        today.setDate(today.getDate() + 8);
+        var next = this.nextPractice();
+        return today > this.nextPractice();
+    },
     priorPractice: function() {
-        var latestPractice = Practices.findOne({}, { sort: { time: 1 } });
-        var lpt = latestPractice.time;
-        lpt.setDate(lpt.getDate() - 7);
+        var lpt = new Date();
+        var latestPractice = Practices.findOne({}, { sort: { time: -1 } });
+        if (latestPractice) {
+            lpt = latestPractice.time;
+            lpt.setDate(lpt.getDate() - 7);
+        }
         return lpt;
     },
     schedule: function() {
