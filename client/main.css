@@ -112,3 +112,7 @@ body {
 .spaced-children > *:not(:last-child) {
     margin-right: 5px;
 }
+
+.very-spaced-children > *:not(:last-child) {
+    margin-right: 10px;
+}

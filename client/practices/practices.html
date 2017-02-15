@@ -3,7 +3,7 @@
         <div class="metro-header" {{b "click: go('home')"}}>Practices</div>
         <div class="metro-action-button tardy" {{b "click: createPractice(nextPractice), text: readableDate(nextPractice), if: shouldShowNext()"}}> </div>
         {{#each practices}}
-        <div class="metro-action-button" {{b "click: selectPractice(this)"}}>
+        <div class="metro-action-button very-spaced-children" {{b "click: selectPractice(this)"}}>
             <span> {{readableDate(this.time)}}</span> <i class="fa fa-lock" {{b "if:this.locked"}}></i>
         </div>
         {{/each}}
