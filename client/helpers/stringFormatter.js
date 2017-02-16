@@ -64,6 +64,10 @@ ViewModel.share({
         },
         practiceDateFromId: function(practiceId) {
             var practice = Practices.findOne({ _id: practiceId });
+            if (!practice) {
+                console.log('practice is %O', practice);
+                return "Unkown Date";
+            }
             return this.readableDate(practice.time);
         },
     }
