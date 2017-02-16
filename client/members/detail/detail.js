@@ -1,5 +1,5 @@
 Template.member.viewmodel({
-    share: ['menu'],
+    share: ['menu', 'stringFormatter'],
     onRendered: function() {
         this.menuItems(
             [{
@@ -12,5 +12,15 @@ Template.member.viewmodel({
     delete: function(memberId) {
         Members.remove(memberId);
         Router.go('members');
+    },
+    showAbsents: true,
+    showTardies: true,
+    tardies: function() {
+        if (!this._id) return null;
+        return MemberPractices.find({ member: this._id.value, attendance: 'TARDY' });
+    },
+    absents: function() {
+        if (!this._id) return null;
+        return MemberPractices.find({ member: this._id.value, attendance: 'ABSENT' });
     }
 });

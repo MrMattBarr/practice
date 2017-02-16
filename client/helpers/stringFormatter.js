@@ -62,5 +62,9 @@ ViewModel.share({
             var member = Members.findOne({ _id: memberId });
             return member.name || "unkown";
         },
+        practiceDateFromId: function(practiceId) {
+            var practice = Practices.findOne({ _id: practiceId });
+            return this.readableDate(practice.time);
+        },
     }
 });

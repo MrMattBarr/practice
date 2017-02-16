@@ -1,5 +1,27 @@
 <template name="member">
     <div class="vertical-flexbox">
         <div class="metro-header" {{b "click: go('members')"}}>{{name}}</div>
+        <div class="metro-sub-header spaced-children" {{b "toggle: showAbsents"}}>
+            <i class="fa fa-caret-right" {{b "class: { 'rotate right': showAbsents }" }}></i>
+            <span>Absents ({{absents.count}})</span>
+        </div>
+        <div class="metro-sub-section" {{b "if: showAbsents"}}>
+            {{#each absents}}
+            <div class="metro-sub-entry flexbox absent">
+                <div>{{practiceDateFromId(this.practice)}}</div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="metro-sub-header spaced-children" {{b "toggle: showListen"}}>
+            <i class="fa fa-caret-right" {{b "class: { 'rotate right': showListen }" }}></i>
+            <span>Tardies ({{tardies.count}})</span>
+        </div>
+        <div class="metro-sub-section" {{b "if: showListen"}}>
+            {{#each tardies}}
+            <div class="metro-sub-entry flexbox tardy">
+                <div>{{practiceDateFromId(this.practice)}}</div>
+            </div>
+            {{/each}}
+        </div>
     </div>
 </template>
