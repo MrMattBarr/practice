@@ -21,6 +21,7 @@ Template.member.viewmodel({
     },
     attemptDeleteMemberPractice: function(memberPractice) {
         var practice = Practices.findOne({ id_: this.practice });
+        console.log('attempting delete of %O for practice %O', memberPractice, practice);
         if (!practice) MemberPractices.remove(memberPractice._id);
     },
     absents: function() {
