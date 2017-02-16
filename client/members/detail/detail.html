@@ -16,7 +16,7 @@
             <i class="fa fa-caret-right" {{b "class: { 'rotate right': showListen }" }}></i>
             <span>Tardies ({{tardies.count}})</span>
         </div>
-        <div class="metro-sub-section" {{b "if: showListen"}}>
+        <div class="metro-sub-section" {{b "if: showTardies"}}>
             {{#each tardies}}
             <div class="metro-sub-entry flexbox tardy" {{b "click: attemptDeleteMemberPractice(this)"}}>
                 <div>{{practiceDateFromId(this.practice)}}</div>
