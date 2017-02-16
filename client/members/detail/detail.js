@@ -20,7 +20,7 @@ Template.member.viewmodel({
         return MemberPractices.find({ member: this._id.value, attendance: 'TARDY' });
     },
     attemptDeleteMemberPractice: function(memberPractice) {
-        var practice = Practices.findOne({ id_: this.practice });
+        var practice = Practices.findOne({ id_: memberPractice.practice });
         console.log('attempting delete of %O for practice %O', memberPractice, practice);
         if (!practice) MemberPractices.remove(memberPractice._id);
     },
