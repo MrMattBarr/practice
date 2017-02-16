@@ -7,7 +7,7 @@
         </div>
         <div class="metro-sub-section" {{b "if: showAbsents"}}>
             {{#each absents}}
-            <div class="metro-sub-entry flexbox absent">
+            <div class="metro-sub-entry flexbox absent" {{b "click: attemptDeleteMemberPractice(this)"}}>
                 <div>{{practiceDateFromId(this.practice)}}</div>
             </div>
             {{/each}}
@@ -18,7 +18,7 @@
         </div>
         <div class="metro-sub-section" {{b "if: showListen"}}>
             {{#each tardies}}
-            <div class="metro-sub-entry flexbox tardy">
+            <div class="metro-sub-entry flexbox tardy" {{b "click: attemptDeleteMemberPractice(this)"}}>
                 <div>{{practiceDateFromId(this.practice)}}</div>
             </div>
             {{/each}}

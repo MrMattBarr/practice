@@ -19,6 +19,10 @@ Template.member.viewmodel({
         if (!this._id) return null;
         return MemberPractices.find({ member: this._id.value, attendance: 'TARDY' });
     },
+    attemptDeleteMemberPractice: function(memberPractice) {
+        var practice = Practices.findOne({ id_: this.practice });
+        if (!practice) MemberPractices.remove(memberPractice._id);
+    },
     absents: function() {
         if (!this._id) return null;
         return MemberPractices.find({ member: this._id.value, attendance: 'ABSENT' });
