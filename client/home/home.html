@@ -7,13 +7,3 @@
         <div class="metro-action-button" {{b "click: go('members')" }}>members</div>
     </div>
 </template>
-<template name="menu">
-    <div class="bottom-menu" {{b "if: menuItems.length > 0"}}>
-        {{#each getMenuItems}}
-        <div class="nav-button" {{b "click: processItem(this)"}}>
-            <i class="fa {{icon}}"></i>
-            <div class="nav-label">{{this.label}}</div>
-        </div>
-        {{/each}}
-    </div>
-</template>
