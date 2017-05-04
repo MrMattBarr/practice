@@ -1,6 +1,6 @@
 <template name="members">
     <div class="vertical-flexbox">
-        <div class="metro-header" {{b "click: go('home')"}}>The Acoustix</div>
+        <div class="metro-header" {{b "click: go('home')"}}>Startup Sound</div>
         {{#each members}}
         <div class="metro-action-button" {{b "click: selectMember(this)"}}> {{this.name}} </div>
         {{/each}}

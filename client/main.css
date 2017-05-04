@@ -1,17 +1,14 @@
-/* CSS declarations go here */
 
-body {
-    font-family: Arial;
-    margin: 0;
-    padding: 0;
-    background-image: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-}
 
 @font-face {
     font-family: 'Sertig';
     src: url('./fonts/Sertig.otf');
     /* IE9 Compat Modes */
+}
+
+.main-nav
+{
+    display: flex;
 }
 
 .metro-header {
@@ -100,13 +97,6 @@ body {
 
 .flex-grow {
     flex-grow: 1;
-}
-
-.main-view {
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 50px;
 }
 
 .spaced-children > *:not(:last-child) {

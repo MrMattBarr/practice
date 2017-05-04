@@ -1,0 +1,44 @@
+.mouseover-expander {
+    position: relative;
+    cursor: default;
+    .expander-content {
+        position: absolute;
+        background: linear-gradient(0deg, #efefef, #fafafa);
+        box-shadow: 3px 3px 5px #999;
+        white-space: nowrap;
+        border-left: 1px solid;
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+        padding: 10px;
+        z-index: 2;
+        margin-left: -1px;
+    }
+    .expander-label {
+        display: flex;
+        align-items: center;
+        z-index: 3;
+        i.fa.fa-caret-right {
+            margin-right: 10px;
+        }
+    }
+    &:not(:hover) .expander-content {
+        display: none;
+    }
+    &:hover .expander-label i.fa.fa-caret-right {
+        transform: rotate(90deg);
+        transition-duration: .25s;
+        margin-left: 5px;
+    }
+    .stat {
+        display: flex;
+    }
+    .stat:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    .stat .stat-label {
+        margin-right: 10px;
+    }
+    .stat .stat-value {
+        color: #07259c;
+    }
+}

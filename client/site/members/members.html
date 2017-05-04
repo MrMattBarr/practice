@@ -1,0 +1,32 @@
+<template name="siteMembers">
+  {{#each members}}
+  <div class="member-overview">
+                <div class="member-pic">
+                    <img src="{{this.img}}" />
+                </div>
+                <div class="member-summary">
+                    <div class="member-summary-header">
+                        <div class="mouseover-expander">
+                            <div class="expander-label member-name">
+                                <i class="fa fa-caret-right"></i>
+                                <div>{{this.name}}</div>
+                            </div>
+                            <div class="expander-content">
+                                <div class="member-stats">
+                                    <div class="stat">
+                                        <div class="stat-label">Joined:</div>
+                                        <div class="stat-value">2015</div>
+                                    </div>
+                                    <div class="stat">
+                                        <div class="stat-label">Voice:</div>
+                                        <div class="stat-value">Bass</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tidbit">{{this.biography}}</div>
+                </div>
+            </div>
+  {{/each}}
+</template>

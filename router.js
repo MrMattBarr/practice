@@ -3,6 +3,9 @@ Router.configure({
 });
 
 Router.map(function() {
+    this.route('site', {
+        path: '/site'
+    });
     this.route('home', {
         path: '/'
     });
@@ -17,6 +20,9 @@ Router.map(function() {
     });
     this.route('members', {
         path: '/members'
+    });
+    this.route('siteMembers', {
+        path: '/site/members'
     });
     this.route('createMember', {
         path: '/create/member'

@@ -61,6 +61,18 @@ Template.practices.viewmodel({
     },
     createNewPractice: function() {},
     selectPractice: function(practice) {
+        var members = Members.find({});
+        members.forEach(function(member) {
+            var memberPractice = MemberPractices.findOne({ member: member._id, practice: practice._id });
+            if (!memberPractice) {
+                MemberPractices.insert({
+                    createdAt: new Date(),
+                    member: member._id,
+                    practice: practice._id,
+                    attendance: "PRESENT"
+                });
+            }
+        });
         Router.go('practice', {
             _id: practice._id
         });
