@@ -8,4 +8,5 @@ SongPractices = new Mongo.Collection("songPractices");
 SongSections = new Mongo.Collection("songSections");
 MemberPractices = new Mongo.Collection("memberPractices");
 Shows = new Mongo.Collection("shows");
+Solos = new Mongo.Collection("solos");
 Settings = new Mongo.Collection("settings");

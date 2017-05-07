@@ -1,0 +1,22 @@
+@import "/client/flex.less";
+.show-entry {
+    .flex;
+    .show-pic {
+        min-width: 300px;
+        width: 300px;
+        margin-right: 20px;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    .show-details {
+        .vertical-flex;
+        .show-description {
+            margin-top:10px;
+             &>*:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+@import "/client/colors.less";
+@import "/client/flex.less";
+
+.song-name {
+    display: flex;
+    flex-grow: 1;
+    align-items: baseline;
+    color: #000;
+}
+
+.songs-list {
+    display: flex;
+    flex-wrap: wrap;
+    border:1px solid @highlight_color;
+    border-bottom-width:2px
+    .song-summary:not(:last-child) {
+        border-bottom: 1px solid #000;
+    }
+}
+
+.song-summary{
+    padding:0 5px;
+    min-width:450px;
+    flex-grow:1;
+    border-left: 1px solid @highlight_color;
+    border-top: 1px solid @highlight_color;
+    border-right: 1px solid @highlight_color;
+}
+
+.song-summary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.song-summary-header > *:not(:last-child) {
+    margin-right: 10px;
+}
+
+.song-summary-header {
+    height: 30px;
+    .expander-label
+    {
+      height:30px;
+      padding:0 5px;
+    }
+}

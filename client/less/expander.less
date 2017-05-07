@@ -1,9 +1,11 @@
+@import "/client/colors.less";
+
 .mouseover-expander {
     position: relative;
     cursor: default;
     .expander-content {
         position: absolute;
-        background: linear-gradient(0deg, #efefef, #fafafa);
+        background: linear-gradient(to bottom, @blue_1, @blue_2);
         box-shadow: 3px 3px 5px #999;
         white-space: nowrap;
         border-left: 1px solid;
@@ -15,6 +17,7 @@
     }
     .expander-label {
         display: flex;
+        font-size:24px;
         align-items: center;
         z-index: 3;
         i.fa.fa-caret-right {

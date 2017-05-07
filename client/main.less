@@ -1,40 +1,53 @@
 @import "colors.less";
 @import "flex.less";
-
 body {
-  .vertical-flex;
-  align-items:flex-start;
-  font-family: Arial;
-  margin: 0;
-  padding: 10px;
-  background-image: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
-  background-color: @green_1;
+    .vertical-flex;
+    align-items: flex-start;
+    font-family: Arial;
+    margin: 0;
+    padding: 10px;
+    background-image: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
+    background-color: @green_1;
+    .main-view {
+        align-self: stretch;
+        background-color: #c5d7e5;
+        border: 1px solid #999;
+        min-height: 100px;
+        padding: 10px;
+        max-width: 1000px;
+        min-width: 500px;
 
-  .main-view
-  {
-    align-self: stretch;
-    background-color: @blue_1;
-    border:1px solid ##999;
-    min-height:100px;
-    min-width:750px;
-  }
+        .fit-pic
+        {
+         &.main-pic img
+         {
+            border:2px solid @highlight_color;
+         }
+         img
+          {
+            max-width: 100%;
+            height: auto;
+          }
+        }
+    }
 }
 
-.header
-{
-  .vertical-flex;
-  align-items: flex-start;
-  .menu.top > *
-  {
-    color: @blue_1;
-    font-size:22px;
-    cursor: pointer;
-    font-family: 'Sertig';
-    height: 30px;
-    font-size: 22px;
-    text-shadow: 2px 2px 2px #444;
-    background-color: rgba(230, 240, 250, 0);
-    display: flex;
-    padding: 10px;
-  }
+.header {
+    .vertical-flex;
+    align-items: flex-start;
+    .menu.top > * {
+        color: @blue_1;
+        font-size: 22px;
+        cursor: pointer;
+        font-family: 'Sertig';
+        height: 30px;
+        font-size: 22px;
+        text-shadow: 2px 2px 2px #444;
+        background-color: rgba(230, 240, 250, 0);
+        display: flex;
+        padding: 10px;
+        &:hover {
+            color: @white_1;
+        }
+    }
 }

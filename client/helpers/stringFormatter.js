@@ -10,8 +10,10 @@ ViewModel.share({
                     return 'Absent';
             }
         },
-        readableDate: function(date) {
-            if (!date) return "Practice details";
+        readableDate: function(date, includeTime) {
+            if (!date) return "Unknown Date";
+            date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+            console.log('date is %O', date);
             var month = date.getMonth();
             var rm = 'Unknwown';
             switch (month) {
@@ -52,7 +54,9 @@ ViewModel.share({
                     rm = "December";
                     break;
             }
-            return rm + " " + date.getDate() + ", " + (date.getYear() + 1900);
+            let readableDate = rm + " " + date.getDate() + ", " + (date.getYear() + 1900);
+            if(includeTime) readableDate += " " + date.getHours() + ":" +  date.getMinutes();
+            return readableDate;
         },
         songNameFromId: function(songId) {
             var song = Songs.findOne({ _id: songId });

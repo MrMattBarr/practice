@@ -1,0 +1,14 @@
+<template name="siteShows">
+    {{#each show in shows}}
+    <div class="show-entry">
+        <div class="show-pic">
+            <img src="{{show.img}}"/>
+        </div>
+        <div class="show-details">
+            <div class="entry-header">{{show.name}}</div>
+            <div>{{readableDate(show.showTime)}}</div>
+            <div class="show-description">{{{show.description}}}</div>
+        </div>
+    </div>
+    {{/each}}
+</template>

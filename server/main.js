@@ -9,6 +9,7 @@ MemberPractices = new Mongo.Collection("memberPractices");
 SongSections = new Mongo.Collection("songSections");
 Shows = new Mongo.Collection("shows");
 Settings = new Mongo.Collection("settings");
+Solos = new Mongo.Collection("solos");
 
 Meteor.startup(() => {
     // code to run on server at startup

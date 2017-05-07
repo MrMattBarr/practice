@@ -1,15 +1,25 @@
 Template.siteMembers.viewmodel({
-    share: ['menu'],
-    onRendered: function() {
-        this.menuItems(
-            []);
-    },
     members: function() {
-        return Members.find({});
+        return Members.find(
+            {}, 
+            { 
+                sort: { name: 1 }
+            });
+    },
+    selectedMember: null,
+    noSelectedMember: function() {
+        return !this.selectedMember.value;
     },
     selectMember: function(member) {
-        Router.go('member', {
-            _id: member._id
-        });
+        this.selectedMember(member);
+    },
+    solos: function(member) {
+        return Solos.find({ member: member._id });
+    },
+    songFromSolo: function(solo) {
+        return Songs.findOne(solo.song);
+    },
+    songName: function(solo) {
+        return this.songFromSolo(solo).name;
     }
 });
