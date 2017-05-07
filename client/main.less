@@ -1,5 +1,7 @@
 @import "colors.less";
 @import "flex.less";
+@import "/client/less/sizes.less";
+
 body {
     .vertical-flex;
     align-items: flex-start;
@@ -9,6 +11,12 @@ body {
     background-image: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
     background-color: @green_1;
     .main-view {
+        .vertical-flex;
+        &> *:not(:last-child)
+        {
+          margin-bottom:@medium_spacing;
+        }
+
         align-self: stretch;
         background-color: #c5d7e5;
         border: 1px solid #999;

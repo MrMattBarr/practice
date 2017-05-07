@@ -21,13 +21,25 @@
             </div>
             <div class="tidbit">{{selectedMember.biography}}</div>
             <div class="song-features">
-                <div class="entry-header">{{selectedMember.nickname}} is featured in </div>
-                <ul>
-                    {{#each solo in solos (selectedMember) }}
-                    <li>{{songName(solo)}} ({{solo.role}})</li>
-                    {{/each}}
-                </ul>
+                <div class="entry-header grey-text" {{b "if: !anySolos(selectedMember)"}}>
+                    None of our songs currently feature {{selectedMember.name}}.
+                </div>
+                <div {{b "if: anySolos(selectedMember)"}}>
+                    <div class="entry-header">{{selectedMember.nickname}} is featured in </div>
+                    <ul>
+                        {{#each solo in solos (selectedMember) }}
+                        <li>{{songName(solo)}} ({{solo.role}}) </li>
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
+        <div class="flex spaced-children" {{b "if: isAdmin"}}>
+            <select {{b "options: songs, optionsValue: _id, optionsText: name, value: selectedSong" }}>
+            </select>
+            <input {{b "value: songRole"}} placeholder="Role in Song">
+            <button {{ b "click: addRole(selectedSong, songRole)"}} >Add Feature</button>
+        </div>
+
         </div>
     </div>
     {{/if}}

@@ -13,7 +13,6 @@ ViewModel.share({
         readableDate: function(date, includeTime) {
             if (!date) return "Unknown Date";
             date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-            console.log('date is %O', date);
             var month = date.getMonth();
             var rm = 'Unknwown';
             switch (month) {

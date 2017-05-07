@@ -6,10 +6,19 @@
   .grow {
     flex-grow:1;
   }
+  &.spaced-children > *:not(:last-child)
+  {
+    margin-right:10px;
+  }
 }
 
 .vertical-flex
 {
   .flex;
   flex-direction: column;
+
+  &.spaced-children > *:not(:last-child)
+  {
+    margin-bottom:10px;
+  }
 }
