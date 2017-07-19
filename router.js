@@ -12,6 +12,9 @@ Router.map(function() {
     this.route('songs', {
         path: '/songs'
     });
+    this.route('booking', {
+        path: '/booking'
+    });
     this.route('siteSongs', {
         path: 'site/songs'
     });

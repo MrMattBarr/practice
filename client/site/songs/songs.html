@@ -1,30 +1,10 @@
 <template name="siteSongs">
 <p>As a group, we try to keep a very live and active repertoire which means that as time goes on we add new songs and put some of our older songs on the back shelf. Most of our songs are arranged by members of the group and we vote about once a year on what songs to add next. If you've got a song that you think we'd love to sing, we'd love hear about it!</p>
     <div class="songs-list-holder">
-        <div class="songs-list">
+        <ul class="songs-list">
             {{#each song in songs}}
-            <div class="song-summary">
-                <div class="song-summary-header">
-                    <div class="mouseover-expander">
-                        <div class="expander-label song-name">
-                            <i class="fa fa-caret-right"></i>
-                            <div>{{song.name}}</div>
-                        </div>
-                        <div class="expander-content">
-                            <div class="song-stats">
-                                {{#each solo in solos (song) }}
-                                <div class="stat">
-                                    <div class="stat-label">{{solo.role}}:</div>
-                                    <div class="stat-value">{{soloistName(solo)}}</div>
-                                </div>
-                                {{/each}}
-                            </div>
-                        </div>
-                    </div>
-                    <div>{{song.originalArtist}}</div>
-                </div>
-            </div>
+                <li>{{song.name}} - {{song.originalArtist}}</li>
             {{/each}}
-        </div>
+            </ul>
     </div>
 </template>

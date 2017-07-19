@@ -54,7 +54,6 @@ ViewModel.share({
                     break;
             }
             let readableDate = rm + " " + date.getDate() + ", " + (date.getYear() + 1900);
-            if(includeTime) readableDate += " " + date.getHours() + ":" +  date.getMinutes();
             return readableDate;
         },
         songNameFromId: function(songId) {
